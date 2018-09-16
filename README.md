@@ -1,7 +1,7 @@
 # mac-setup
 setup mac using ansible and mackup
 
-# how to
+# how to use
 ```bash
 sudo xcodebuild -license
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -12,6 +12,11 @@ git clone https://github.com/mkusaka/mac-setup.git
 HOMEBREW_CASK_OPTS="--appdir=~/Applications" ansible-playbook -i hosts localhost.yml --ask-become-pass -e "thorough=true" --check
 # run
 HOMEBREW_CASK_OPTS="--appdir=~/Applications" ansible-playbook -i hosts localhost.yml --ask-become-pass -e "thorough=true" --check
+```
+after setup dropbox account
+
+```bash
+mackup restore
 ```
 
 # references
