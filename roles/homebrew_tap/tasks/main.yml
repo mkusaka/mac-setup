@@ -1,2 +1,12 @@
 ---
-# tasks file for homebrew_tap
+- name: homebrewのtapリポジトリの追加
+  homebrew_tap:
+      tap="{{ item }}"
+      state=present
+  with_items:
+    - homebrew/core
+    - caskroom/cask
+    - caskroom/versions
+    - homebrew/cask-fonts
+    - homebrew/services
+    - d12frosted/emacs-plus

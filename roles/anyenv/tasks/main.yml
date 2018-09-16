@@ -1,2 +1,13 @@
 ---
-# tasks file for anyenv
+- name: clone anyenv
+  git:
+    repo: 'https://github.com/riywo/anyenv.git'
+    dest: ~/.anyenv
+
+- name: set path to anyenv
+  lineinfile:
+    dest: ~/.zshrc
+    line: "{{ item }}"
+  with_items:
+    - export PATH="$HOME/.anyenv/bin:$PATH"
+    - eval "$(anyenv init -)"

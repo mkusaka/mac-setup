@@ -1,2 +1,48 @@
 ---
-# tasks file for homebrew
+- name: update homebrew
+  homebrew:
+    update_homebrew=yes
+
+- name: install brew packages
+  homebrew:
+    name="{{ item.name }}"
+    state="{{ item.state | default('latest') }}"
+    install_options="{{
+      item.install_options | default() | join(',')
+      if item.install_options is not string
+      else item.install_options }}"
+  with_items:
+    - { name: ghq }
+    - { name: git }
+    - { name: heroku }
+    - { name: aws-elasticbeanstalk }
+    - { name: peco }
+    - { name: wget }
+    - { name: awscli }
+    - { name: cask }
+    - { name: ctop }
+    - { name: docker }
+    - { name: curl }
+    - { name: emacs }
+    - { name: gibo }
+    - { name: mas }
+    - { name: runit }
+    - { name: tig }
+    - { name: tmux }
+    - { name: tree }
+    - { name: openssl }
+    - { name: mackup }
+    - { name: emacs-plus }
+    - { name: chromedriver }
+
+- name: change package links
+  homebrew:
+    name="{{ item.name }}"
+    state="{{ item.state | default('latest') }}"
+    install_options="{{
+      item.install_options | default() | join(',')
+      if item.install_options is not string
+      else item.install_options }}"
+  with_items:
+    - { name: openssl, state: linked, install_options: force}
+  changed_when: False

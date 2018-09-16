@@ -1,0 +1,17 @@
+---
+- name: homebrewのtapリポジトリの追加
+  command: mas install "{{ item.id }}"
+  with_items:
+    - name: BetterSnapTool
+      id: 417375580
+    - name: Display Menu
+      id: 549083868
+    - nane: GIPHY CAPTURE
+      id: 668208984
+    - nane: LastPass
+      id: 926036361
+    - nane: Wallcat
+      id: 1000397973
+    - nane: Xcode
+      id: 497799835
+  when: thorough == "true"

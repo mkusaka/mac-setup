@@ -1,0 +1,6 @@
+---
+ruby_versions:
+  - 2.4.4
+  - 2.5.1
+node_versions:
+  - v10.4.0

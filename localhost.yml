@@ -8,8 +8,8 @@
     - homebrew_tap
     - homebrew
     - homebrew_cask
+    - zsh
     - anyenv
     - rbenv
     - ndenv
     - osx_defaults
-    - zsh

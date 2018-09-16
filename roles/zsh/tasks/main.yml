@@ -1,2 +1,30 @@
 ---
-# tasks file for zsh
+- name: update homebrew
+  homebrew:
+    update_homebrew=yes
+
+- name: install zsh
+  homebrew:
+    name="{{ item.name }}"
+    state="{{ item.state | default('latest') }}"
+    install_options="{{
+      item.install_options | default() | join(',')
+      if item.install_options is not string
+      else item.install_options }}"
+  with_items:
+    - { name: zsh }
+    - { name: zplug }
+    - { name: zsh-autosuggestions }
+    - { name: zsh-completions }
+    - { name: zsh-syntax-highlighting }
+    - { name: zsh-history-substring-search }
+
+- name: add zsh to selectable shell
+  lineinfile:
+    dest: /etc/shells
+    line: /usr/local/bin/zsh
+  become: yes
+
+- name: set zsh as default shell
+  shell: chsh -s /usr/local/bin/zsh
+  become: yes
