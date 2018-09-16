@@ -19,6 +19,10 @@ after setup dropbox account
 
 ```bash
 mackup restore
+# link editor config
+ln -s /Users/user.name/Dropbox/VScode/User/ ~/Library/Application\ Support/Code/User
+# link plugins
+ln -s /Users/user.name/Dropbox/VScode/Extensions/ ~/.vscode/extensions
 ```
 
 # references
