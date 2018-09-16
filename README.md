@@ -12,6 +12,8 @@ git clone https://github.com/mkusaka/mac-setup.git
 HOMEBREW_CASK_OPTS="--appdir=~/Applications" ansible-playbook -i hosts localhost.yml --ask-become-pass -e "thorough=true" --check
 # run
 HOMEBREW_CASK_OPTS="--appdir=~/Applications" ansible-playbook -i hosts localhost.yml --ask-become-pass -e "thorough=true" --check
+# avast is not installed. because its depends on their preference.
+brew cask install avast
 ```
 after setup dropbox account
 
